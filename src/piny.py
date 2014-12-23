@@ -1,6 +1,6 @@
 from flask import Flask
 
-from shortener import Base62
+from src.shortener import Base62
 
 
 app = Flask(__name__)

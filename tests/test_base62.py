@@ -1,4 +1,4 @@
-from shortener import Base62
+from src.shortener import Base62
 
 
 def test_base62_to_decimal():
