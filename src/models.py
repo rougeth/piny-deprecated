@@ -16,3 +16,19 @@ class User(db.model):
 
     def __repr__(self):
         return '<User %r>' % self.username
+
+
+class Url(db.model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    url = db.Column(db.String(200))
+    customized = db.Column(db.Boolean)
+    url_customized = db.Column(db.String(30))
+
+    def __init__(self, url, customized=False, url_custom=None):
+        self.url = url
+        self.customized = customized
+        self.url_customized = url_custom
+
+    def __repr__(self):
+        return '<Url %r>' % self.url
