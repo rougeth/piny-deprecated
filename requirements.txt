@@ -1,4 +1,5 @@
 Flask
 Flask-SQLAlchemy
+Flask-WTF
 pytest
 flake8
