@@ -1,9 +1,12 @@
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
 from src.shortener import Base62
 
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/piny.db'
+db = SQLAlchemy(app)
 
 
 @app.route('/')
