@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 
 from src.shortener import Base62
@@ -21,4 +21,4 @@ def redirect(url_id):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
