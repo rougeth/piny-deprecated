@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
 
 
 class HomeNotAuthenticatedTestCase(TestCase):
@@ -21,3 +22,17 @@ class HomeNotAuthenticatedTestCase(TestCase):
 
     def test_final_template_used(self):
         self.assertTemplateUsed(self.response, 'core/login.html')
+
+
+class HomeAuthenticatedTestCase(TestCase):
+
+    def setUp(self):
+        User.objects.create_user('alanturing', 'alan@turi.ng', '4l4n7uR1ng')
+        self.client.login(username='alanturing', password='4l4n7uR1ng')
+        self.response = self.client.get(reverse('home'))
+
+    def test_status_code(self):
+        self.assertEqual(self.response.status_code, 200)
+
+    def test_template_used(self):
+        self.assertTemplateUsed(self.response, 'core/home.html')
