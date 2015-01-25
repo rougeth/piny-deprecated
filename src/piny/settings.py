@@ -54,6 +54,9 @@ ROOT_URLCONF = 'piny.urls'
 WSGI_APPLICATION = 'piny.wsgi.application'
 
 
+LOGIN_URL = '/login'
+
+
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
@@ -82,3 +85,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
