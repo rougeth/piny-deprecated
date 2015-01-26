@@ -5,5 +5,8 @@
   "authors": [
     "Marco Rougeth <marco@rougeth.com>"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "~3.3.2"
+  }
 }
