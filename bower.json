@@ -1,0 +1,9 @@
+{
+  "name": "Piny",
+  "version": "0.01",
+  "homepage": "https://github.com/rougeth/piny",
+  "authors": [
+    "Marco Rougeth <marco@rougeth.com>"
+  ],
+  "license": "MIT"
+}
