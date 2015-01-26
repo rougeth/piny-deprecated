@@ -1,5 +1,2 @@
-Flask
-Flask-SQLAlchemy
-Flask-WTF
-pytest
-flake8
+django
+pybaco
