@@ -2,23 +2,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Piny</title>
+  <meta charset="UTF-8">
+  <title>Piny</title>
 
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{% static "bootstrap/dist/css/bootstrap.min.css" %}">
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{% static "bootstrap/dist/css/bootstrap.min.css" %}">
 
-    {% block css %}
-    {% endblock css %}
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .pn-navbar {
+      background: #fff;
+      border: none;
+      padding: 4.4em 0 2em 0;
+    }
+
+    .pn-navbar-nav {
+      margin-top: .6em;
+    }
+
+    .pn-brand {
+      font-size: 4em;
+      font-style: italic;
+      letter-spacing: -6px;
+    }
+
+  </style>
+
+  {% block css %}
+  {% endblock css %}
 </head>
 <body>
 
-    {% block content %}
-    {% endblock content %}
+  <div class="container">
+    <nav class="navbar navbar-default pn-navbar">
 
-    <script src="{% static "jquery/dist/js/bootstrap.min.js" %}"></script>
-    <script src="{% static "bootstrap/dist/jquery.min.js" %}"></script>
-    {% block javascript %}
-    {% endblock javascript %}
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand pn-brand" href="#">Piny</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav pn-navbar-nav">
+          {% if not user.is_active %}
+          <li><a href="{% url 'login' %}">Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <hr>
+  {% block content %}
+  {% endblock content %}
+
+  <script src="{% static "jquery/dist/js/bootstrap.min.js" %}"></script>
+  <script src="{% static "bootstrap/dist/jquery.min.js" %}"></script>
+  {% block javascript %}
+  {% endblock javascript %}
 </body>
 </html>
