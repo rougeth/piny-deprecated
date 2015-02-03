@@ -45,7 +45,6 @@ if DEBUG:
     INSTALLED_APPS = INSTALLED_APPS + (
         'debug_toolbar',
     )
-    print(INSTALLED_APPS)
 
 
 MIDDLEWARE_CLASSES = (
