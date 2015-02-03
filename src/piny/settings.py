@@ -7,6 +7,7 @@ https://docs.djangoproject.com/en/1.7/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
@@ -20,9 +21,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'xqus=g%9x&d$%(9o7g_kpgrs#vxkxru3#egv!1fv!8t3!8!6xq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = []
 
@@ -38,6 +39,13 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'core',
 )
+
+if DEBUG:
+    INSTALLED_APPS = INSTALLED_APPS + (
+        'debug_toolbar',
+    )
+    print(INSTALLED_APPS)
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
