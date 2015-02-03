@@ -36,3 +36,32 @@ class HomeAuthenticatedTestCase(TestCase):
 
     def test_template_used(self):
         self.assertTemplateUsed(self.response, 'core/home.html')
+
+
+class LoginTestCase(TestCase):
+
+    def setUp(self):
+        self.response = self.client.get(reverse('login'))
+
+    def test_status_code(self):
+        self.assertEqual(self.response.status_code, 200)
+
+    def test_template_used(self):
+        self.assertTemplateUsed(self.response, 'core/login.html')
+
+
+class LogoutTestCase(TestCase):
+
+    def setUp(self):
+        User.objects.create_user('alanturing', 'alan@turi.ng', '4l4n7uR1ng')
+        self.client.login(username='alanturing', password='4l4n7uR1ng')
+        self.response = self.client.get(reverse('logout'), follow=True)
+
+    def test_status_code(self):
+        self.assertEqual(self.response.status_code, 200)
+
+    def test_redirect_chain(self):
+        self.assertEqual(len(self.response.redirect_chain), 2)
+        self.assertEqual(self.response.redirect_chain,
+                         [('http://testserver/', 302),
+                          ('http://testserver/login?next=/', 302)])
