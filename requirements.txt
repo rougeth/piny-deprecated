@@ -1,3 +1,4 @@
 django
 pybaco
 python-decouple
+django_widget_tweaks
