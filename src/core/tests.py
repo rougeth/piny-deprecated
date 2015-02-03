@@ -15,7 +15,7 @@ class HomeNotAuthenticatedTestCase(TestCase):
     def test_redirect_chain(self):
         self.assertEqual(len(self.response.redirect_chain), 1)
         self.assertEqual(self.response.redirect_chain,
-            [('http://testserver/login?next=/', 302)])
+                         [('http://testserver/login?next=/', 302)])
 
     def test_final_status_code(self):
         self.assertEqual(self.response.status_code, 200)
