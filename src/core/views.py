@@ -9,5 +9,6 @@ class LoginRequeredMixin(object):
     def dispatch(self, *args, **kwargs):
         return super(LoginRequeredMixin, self).dispatch(*args, **kwargs)
 
+
 class HomeView(LoginRequeredMixin, TemplateView):
     template_name = 'core/home.html'

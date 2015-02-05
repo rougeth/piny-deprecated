@@ -97,6 +97,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = config('static_root',
+                     default=os.path.join(BASE_DIR, 'static_root'))
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
