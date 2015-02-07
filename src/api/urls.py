@@ -1,8 +1,8 @@
 from django.conf.urls import patterns, url
 
-from api.views import CreateUrl
+from api.views import UrlListCreate
 
 urlpatterns = patterns(
     'api.views',
-    url(r'^create/url$', CreateUrl.as_view(), name='api_create_url'),
+    url(r'^url$', UrlListCreate.as_view(), name='api_url_list_create'),
 )
