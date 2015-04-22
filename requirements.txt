@@ -1,5 +1,0 @@
-django
-djangorestframework
-pybaco
-python-decouple
-django_widget_tweaks
