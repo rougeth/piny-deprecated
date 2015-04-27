@@ -5,7 +5,6 @@ from baco import Baco
 
 
 class Url(models.Model):
-    user = models.ForeignKey(User)
     original_url = models.URLField(max_length=300)
     custom_url = models.CharField(null=True, max_length=300)
     creation_date = models.DateTimeField(auto_now_add=True)
